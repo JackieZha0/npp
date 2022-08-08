@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: new_personal_platform
+  redis:
+    host: 127.0.0.1
+    port: 6379
+
+springfox:
+  documentation:
+    swagger-ui:
+      #开启swagger配置 生产环境需关闭
+      enabled: true

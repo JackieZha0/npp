@@ -1,0 +1,11 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /
+  tomcat:
+    uri-encoding: utf-8
+    max-http-form-post-size: 2MB
+spring:
+  profiles:
+    active: dev
+
