@@ -1,11 +1,9 @@
 package cn.zjk.npp.config.swagger3;
 
-import com.github.xiaoymin.swaggerbootstrapui.annotations.EnableSwaggerBootstrapUI;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -29,8 +27,6 @@ import java.util.Set;
 
 @Configuration
 @EnableOpenApi
-@EnableSwaggerBootstrapUI
-@Profile({"dev"})
 public class SwaggerConfig {
     @Value("${springfox.documentation.swagger-ui.enabled}")
     private boolean enable;
@@ -65,9 +61,9 @@ public class SwaggerConfig {
 
     /**
      * 支持的通讯协议集合
-     * @param type1
-     * @param type2
-     * @return
+     * @param type1 1
+     * @param type2 2
+     * @return set
      */
     private Set<String> newHashSet(String type1, String type2){
         Set<String> set = new HashSet<>();
@@ -112,9 +108,9 @@ public class SwaggerConfig {
         // 用ApiInfoBuilder进行定制
         return new ApiInfoBuilder()
                 // 设置标题
-                .title("接口文档")
+                .title("new_personal_platform")
                 // 描述
-                .description("描述")
+                .description("npp")
                 // 作者信息
                 .contact(new Contact("doctorCloud", null, null))
                 // 版本
@@ -122,7 +118,7 @@ public class SwaggerConfig {
                 //协议
                 .license("The Apache License")
                 //协议url
-                .licenseUrl("http://www.baidu.com")
+                .licenseUrl("#")
                 .build();
     }
 }

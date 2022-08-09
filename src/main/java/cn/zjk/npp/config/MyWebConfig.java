@@ -2,7 +2,6 @@ package cn.zjk.npp.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
@@ -16,26 +15,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class MyWebConfig implements WebMvcConfigurer {
     /**
      * 跨域
-     * @param registry
      */
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("*")
+                .allowedOriginPatterns("*")
                 .allowCredentials(true)
                 .allowedMethods("*")
                 .allowedHeaders("*")
                 .maxAge(3600);
-    }
-
-
-    /**
-     * 拦截器
-     * @param registry
-     */
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        WebMvcConfigurer.super.addInterceptors(registry);
-        // TODO
     }
 }

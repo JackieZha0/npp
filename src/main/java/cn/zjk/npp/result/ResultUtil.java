@@ -19,6 +19,9 @@ public class ResultUtil {
     public static Result success(String message,Object data){
         return new Result(ResultEnum.SUCCESS.getCode(),message,data);
     }
+    public static Result successWithPages(Object data,PageInfo pageInfo){
+        return new Result(ResultEnum.SUCCESS.getCode(), ResultEnum.SUCCESS.getMessage(),data,pageInfo);
+    }
     public static Result fail(){
         return new Result(ResultEnum.FAIL.getCode(),ResultEnum.FAIL.getMessage(),null);
     }
