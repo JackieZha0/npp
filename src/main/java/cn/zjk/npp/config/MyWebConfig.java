@@ -5,7 +5,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
- * @description:
+ * @description: WebConfig
  * @Author zjk
  * @className: MyWebConfig
  * @date: 2022/8/8 15:25

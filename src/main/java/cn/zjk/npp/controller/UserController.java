@@ -30,7 +30,7 @@ public class UserController {
 
     @ApiOperation("获取用户信息")
     @PostMapping("getUserInfo")
-    @MySecurity
+    @MySecurity(decrypt = false)
     public Result getUser(){
         List<User> userList = userService.getUserInfo();
         return ResultUtil.success(userList);
@@ -38,7 +38,6 @@ public class UserController {
 
     @ApiOperation("根据id获取用户信息")
     @PostMapping("getUserInfoById")
-    @MySecurity(decrypt = false)
     public Result getUserById(@RequestBody UserBO userBO){
         User user = userService.getUserById(userBO.getId());
         return ResultUtil.success(user);

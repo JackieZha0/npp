@@ -1,5 +1,7 @@
 package cn.zjk.npp.bo;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
@@ -10,10 +12,16 @@ import lombok.Data;
  */
 
 @Data
+@ApiModel("用户")
 public class UserBO {
-    private int id;
+    @ApiModelProperty("id")
+    private Integer id;
+    @ApiModelProperty("用户名")
     private String userName;
+    @ApiModelProperty("名称")
     private String name;
+    @ApiModelProperty("手机")
     private String phone;
+    @ApiModelProperty("email")
     private String email;
 }
