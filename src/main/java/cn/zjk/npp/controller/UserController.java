@@ -6,6 +6,7 @@ import cn.zjk.npp.model.User;
 import cn.zjk.npp.result.Result;
 import cn.zjk.npp.result.ResultUtil;
 import cn.zjk.npp.service.UserService;
+import cn.zjk.npp.utils.JwtUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @description: TODO
@@ -41,5 +44,20 @@ public class UserController {
     public Result getUserById(@RequestBody UserBO userBO){
         User user = userService.getUserById(userBO.getId());
         return ResultUtil.success(user);
+    }
+
+    @ApiOperation("登录")
+    @PostMapping("/login")
+    public Result login(@RequestBody UserBO userBO){
+        Map<String,String> map = new HashMap<>();
+        Map<String,String> payload = new HashMap<>();
+        payload.put("userId",String.valueOf(userBO.getId()));
+        payload.put("userName", userBO.getUserName());
+        String token = JwtUtil.generateToken(payload);
+
+        map.put("status","OK");
+        map.put("token",token);
+
+        return ResultUtil.success(map);
     }
 }

@@ -6,7 +6,7 @@ import javax.crypto.spec.SecretKeySpec;
 import java.util.Base64;
 
 /**
- * @description: TODO
+ * @description: AES工具包
  * @Author zjk
  * @className: AESUtils
  * @date: 2022/8/15 15:45
